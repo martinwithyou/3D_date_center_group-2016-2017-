@@ -1,0 +1,70 @@
+<html>
+<head>
+  <title>mono demo</title>
+  <script src="../../../libs/t.js"></script>
+ 
+</head>
+<body  style="margin:0px;padding:0px;">
+<!--
+	作者：offline
+	时间：2016-11-18
+	描述：
+-->
+
+	  <div>
+	     <canvas id="monoCanvas"></canvas>
+	  </div>
+	
+	
+
+	   <script>
+    
+
+var box = new mono.DataBox();
+
+for(var i = 0; i < 3; i++) {
+    var element = new mono.Element("element_" + i);
+    element.setName("element_" + i);
+    box.add(element);
+}
+//console.log(box);
+var jsonSerializer = new mono.JsonSerializer(box);
+//序列化box中的数据：
+
+//JavaScript
+
+//把box中的所有对象序列化到json字符串中
+var json = jsonSerializer.serialize();
+
+
+console.log(json);
+
+
+
+//把box中的所有对象序列化到json字符串中
+var json = jsonSerializer.serialize();
+console.log(json);
+//console.log(JSON.stringify(box));
+
+box.forEach(function(element) {
+    console.log(element.getName()); //element_0,element_1,element_2
+});
+
+var element0 = box.getDataAt(0);
+
+element0.setName("newElement");
+
+console.log(element0.getName());//newElement
+
+box.remove(element0);
+
+console.log(box.size());//3
+
+box.clear();
+
+console.log(box.size());//0
+ 
+  </script>
+  
+</body>
+</html>

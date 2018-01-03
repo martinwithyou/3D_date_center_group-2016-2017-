@@ -1,0 +1,44 @@
+<html>
+<head>
+  <title>mono demo</title>
+  <script src="../../../libs/t.js"></script>
+ 
+</head>
+<body  style="margin:0px;padding:0px;">
+<!--
+	作者：offline
+	时间：2016-11-18
+	描述：
+-->
+
+	  <div>
+	     <canvas id="monoCanvas"></canvas>
+	  </div>
+	
+	
+
+	   <script>
+    
+
+    	var box = new mono.DataBox();
+    	var network = new mono.Network3D(box,null,monoCanvas);
+    	mono.Utils.autoAdjustNetworkBounds(network,document.documentElement,'clientWidth','clientHeight');
+    	
+    	var pointLight = new mono.PointLight(0xffffff,1.5);
+    	    pointLight.setPosition(1000,1000,1000);
+    	    box.add(pointLight);
+    
+    	    box.add(new mono.AmbientLight(0x888888));  
+    	    var cube = new mono.Cube(100,300,100);
+    	    cube.s({
+    	    	'm.type':'phong',
+    	    	'm.color':'yellow',
+    	    	'm.ambient':'#8fe9a5'
+    	    });
+    	    cube.setRotation(-Math.PI/10,-Math.PI/5,-Math.PI/10);
+    	    box.add(cube);
+ 
+  </script>
+  
+</body>
+</html>

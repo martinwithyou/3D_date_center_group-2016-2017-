@@ -1,0 +1,118 @@
+<html>
+<head>
+  <title>mono demo</title>
+  <script src="../../../libs/t.js"></script>
+  <script>
+    
+    function init(){
+    	var box = new mono.DataBox();
+    	var network = new mono.Network3D(box,null,monoCanvas);
+    	mono.Utils.autoAdjustNetworkBounds(network,document.documentElement,'clientWidth','clientHeight');
+    	
+    	var pointLight = new mono.PointLight(0xffffff,1.5);
+    	    pointLight.setPosition(1000,100,500);
+    	    box.add(pointLight);
+    	    box.add(new mono.AmbientLight(0x888888));  
+    	    var cube = new mono.Cube(10,500,500);
+    	    cube.s({
+    	    	'm.type':'phong',
+    	    	'm.texture.image': 'image/floor.jpg'
+    	    });
+    	    cube.setRotation(-Math.PI/180*1,-Math.PI/180*1,-Math.PI/180*90);
+    	    box.add(cube);
+    	    
+    	    var cube1 = new mono.Cube(100,500,10);
+    	    cube1.s({
+    	    	'm.type':'phong',
+    	    	'm.texture.image': 'image/metal.png'
+    	    });
+    	    cube1.setRotation(-Math.PI/180*1,-Math.PI/180*1,-Math.PI/180*90);
+    	    cube1.setPositionY(50);
+    	    cube1.setPositionZ(250);
+    	    box.add(cube1);
+    	    
+    	    var cube2 = new mono.Cube(100,500,10);
+    	    cube2.s({
+    	    	'm.type':'phong',
+    	    	'm.texture.image': 'image/metal.png'
+    	    });
+    	    cube2.setRotation(-Math.PI/180*1,-Math.PI/180*1,-Math.PI/180*90);
+    	    cube2.setPositionY(50);
+    	    cube2.setPositionZ(-250);
+    	    box.add(cube2);
+    	    
+    	    var cube3 = new mono.Cube(500,100,10);
+    	    cube3.s({
+    	    	'm.type':'phong',
+  	    	  'm.texture.image': 'image/metal.png'
+    	    });
+    	    cube3.setRotation(-Math.PI/180*1,-Math.PI/180*90,-Math.PI/180*180);
+    	    cube3.setPositionY(50);
+    	    cube3.setPositionZ(0);
+    	    cube3.setPositionX(-250);
+    	    box.add(cube3);
+    	    
+    	    var cube4 = new mono.Cube(210,100,10);
+    	    cube4.s({
+    	    	'm.type':'phong',
+  	    	  'm.texture.image': 'image/metal.png'
+    	    });
+    	    cube4.setRotation(-Math.PI/180*1,-Math.PI/180*90,-Math.PI/180*180);
+    	    cube4.setPositionY(50);
+    	    cube4.setPositionZ(-150);
+    	    cube4.setPositionX(0);
+    	    box.add(cube4);
+    	    
+    	    var cube5 = new mono.Cube(210,100,10);
+    	    cube5.s({
+    	    	'm.type':'phong',
+  	    	  'm.texture.image': 'image/metal.png'
+    	    });
+    	    cube5.setRotation(-Math.PI/180*1,-Math.PI/180*90,-Math.PI/180*180);
+    	    cube5.setPositionY(50);
+    	    cube5.setPositionZ(150);
+    	    cube5.setPositionX(0);
+    	    box.add(cube5);
+    	    
+    	    var cube6 = new mono.Cube(210,100,10);
+    	    cube6.s({
+    	    	'm.type':'phong',
+  	    	  'm.texture.image': 'image/metal.png'
+    	    });
+    	    cube6.setRotation(-Math.PI/180*1,-Math.PI/180*180,-Math.PI/180*180);
+    	    cube6.setPositionY(50);
+    	    cube6.setPositionZ(0);
+    	    cube6.setPositionX(-150);
+    	    box.add(cube6);
+    	    
+    	    
+    	    var cube7 = new mono.Cube(150,100,10);
+    	    cube7.s({
+    	    	'm.type':'phong',
+  	    	  'm.texture.image': 'image/metal_normalmap.jpg'
+    	    });
+    	    cube7.setRotation(-Math.PI/180*90,-Math.PI/180*1,-Math.PI/180*90);
+    	    cube7.setPositionY(30);
+    	    cube7.setPositionZ(-180);
+    	    cube7.setPositionX(-100);
+    	    box.add(cube7);
+    	    
+    	    var cube8 = new mono.Cube(150,100,10);
+    	    cube8.s({
+    	    	'm.type':'phong',
+  	    	  'm.texture.image': 'image/metal_normalmap.jpg'
+    	    });
+    	    cube8.setRotation(-Math.PI/180*90,-Math.PI/180*1,-Math.PI/180*90);
+    	    cube8.setPositionY(30);
+    	    cube8.setPositionZ(160);
+    	    cube8.setPositionX(-150);
+    	    box.add(cube8);
+    }
+  </script>
+</head>
+<body onload="init()" style="margin:0px;padding:0px;">
+	  <div>
+	     <canvas id="monoCanvas"></canvas>
+	  </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title>mono demo</title>
+  <script src="../../../libs/t.js"></script>
+  <script>
+    function init () {
+      var box = new mono.DataBox();
+      var network= new mono.Network3D(box);
+      document.body.appendChild(network.getRootView());
+      mono.Utils.autoAdjustNetworkBounds(network, document.documentElement, 'clientWidth', 'clientHeight');
+
+      var pointLight = new mono.PointLight(0xFFFFFF, 1.5);
+      pointLight.setPosition(1000, 1000, 1000);
+      box.add(pointLight);
+      box.add(new mono.AmbientLight(0x888888));
+
+      var cube = new mono.Cube(200, 200, 200);
+      cube.s({
+        'm.type': 'phong',
+        'm.color': 'red',
+        'm.ambient': 'red',
+      });
+      cube.setRotation(-Math.PI/10, -Math.PI/5, Math.PI/10);
+      box.add(cube);
+    }
+  </script>
+</head>
+<body onload="init()" style="margin:0px;padding:0px;">
+</body>
+</html>
